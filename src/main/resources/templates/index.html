@@ -10,5 +10,14 @@
     <p th:text="${mensaje}"></p>
     <!--se toma la variable que se comparte desde el controlador tomada desde application properties-->
     <p th:text="${saludo}"></p>
+    <!-- tomar los atributos del objeto persona creado en la clase de dominio persona-->
+    <br>
+    Nombre: <span th:text="${persona.nombre}">Mostrar nombre</span>
+    <br>
+    Apellido: <span th:text="${persona.apellido}">Mostrar Apellido</span>
+    <br>
+    Email: <span th:text="${persona.email}">Mostrar email</span>
+    <br>
+    Telefono: <span th:text="${persona.telefono}">Mostrar telefono</span>
 </body>
 </html>
