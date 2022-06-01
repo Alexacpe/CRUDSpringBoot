@@ -19,5 +19,32 @@
     Email: <span th:text="${persona.email}">Mostrar email</span>
     <br>
     Telefono: <span th:text="${persona.telefono}">Mostrar telefono</span>
+    <br>
+     Personas: <span th:text="${personas}">Mostrar personas</span>
+    <br>
+    <!-- lista de personas-->
+    <!-- revisar si la lista está vacía y solo se itera la lista si tiene elementos-->
+    <div th:if="${personas != null and !personas.empty}"> <!-- empty es vacio-->
+    <table border="1px">
+        <tr>
+            <th>Nombre:</th>
+            <th>Apellido:</th>
+            <th>Email:</th>
+            <th>Teléfono:</th>
+        </tr>
+
+        <!-- interar cada uno de los elementos-->
+        <tr th:each="persona : ${personas}">
+            <td th:text="${persona.nombre}">Mostrar nombre</td>
+            <td th:text="${persona.apellido}">Mostrar Apellido</td>
+            <td th:text="${persona.email}">Mostrar email</td>
+            <td th:text="${persona.telefono}">Mostrar telefono</td>
+        </tr>
+    </table>
+    </div>
+    <!--si la lista está vacia mostrar mensaje-->
+    <div th:if="${personas == null or personas.empty}"> <!-- empty es vacio-->
+        La lista está vacía
+    </div>
 </body>
 </html>

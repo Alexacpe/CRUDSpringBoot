@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 //El controlador es quien envia información al navegador
 //restcontroller es para que spring indentifique esta clase como controlador
 
@@ -34,6 +38,17 @@ public class CotroladorInicio {
         persona.setEmail("ejemplo@ejemplo.com");
         persona.setTelefono("1234567");
 
+        //sergundo objeto de tipo persona
+        var persona2 = new Persona();
+        persona2.setNombre("Carla");
+        persona2.setApellido("Suarez");
+        persona2.setEmail("ejemplo2@ejemplo.com");
+        persona2.setTelefono("246810");
+
+        //lista de objetos de tipo persona
+        var personas = Arrays.asList(persona, persona2);
+
+
         //mensaje que se ve en el log
         log.info("ejecutando el controlador Spring MVC");
 
@@ -45,6 +60,9 @@ public class CotroladorInicio {
 
         //compartir el objeto persona con la vista
         model.addAttribute("persona", persona);
+
+        //compartir lista de personas
+        model.addAttribute("personas",personas);
 
         //devuelve un archivo html que se crea en resources
         return "index";
